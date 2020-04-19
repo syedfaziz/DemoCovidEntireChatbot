@@ -46,7 +46,7 @@ def makeResponse(req):
 	#return{"fulfillmentMessages": [{"image": {"imageUri": "https://cdn.pixabay.com/photo/2015/06/19/21/24/the-road-815297__340.jpg"},"platform": "SLACK"}]}
 
 	# return({"fulfillmentMessages": [{"image": {"imageUri": "https://www.coywolf.news/wp-content/uploads/2020/03/coronaviruse.png"},"platform": "TELEGRAM"},{"text": {"text": ["Hey there!!  \n I am your personal assistant and will assist you with details on covid-19. \n But before that I would like to have some information from you. \n Please enter the following details : \n 	_firstname lastname_ \n 	_email_id_ \n 	_phonenumber_ \n 	_pincode_ \n"]      },"platform": "TELEGRAM"}]})
-	return(return{ "fulfillmentMessages": [ { "text": { "text": [IntentName] },"platform": "TELEGRAM" }]})
+	return{ "fulfillmentMessages": [ { "text": { "text": [IntentName] },"platform": "TELEGRAM" }]}
 
 
 if __name__=='__main__':
