@@ -15,7 +15,9 @@ app=Flask(__name__)
 def webhook(): 
 	# convert the data from json. 
 	req=request.get_json(silent=True, force=True)
-	intent = req.get("intent")
+	req2=req.get("queryResult")
+	intent = req2.get("intent")
+	print(intent)
 	IntentName = intent.get("displayName")
 
 	if IntentName=='Default Welcome Intent':
@@ -31,7 +33,7 @@ def webhook():
 		r.headers['Content-Type'] = 'application/json'
 		return r
 	else:
-		pass
+		return {"fulfillmentMessages": [{"text": {"text": ['no such country']},"platform": "TELEGRAM"}]}
 
 # extract parameter values, query weahter api, construct the resposne 
 def DefaultWelcomeIntent(req):
@@ -73,8 +75,8 @@ def CountryStatsCovid(req):
 				str(data['areas'][i]['totalConfirmedDelta']))
 
 			# sending email_to_user
-			email_sender = EmailSender()
-			email_sender.send_email_to_user(email)
+			# email_sender = EmailSender()
+			# email_sender.send_email_to_user(email)
 
 			return {"fulfillmentMessages": [{"text": {"text": [str('EMAIL HAS BEEN SENT TO YOUR EMAIL_ADDRESS\n') + str(
 				{'totalConfirmed': str(data['areas'][i]['totalConfirmed']),
