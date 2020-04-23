@@ -31,10 +31,7 @@ def CountryStatsCovid(req,IntentName):
 
 
 
-	# headers = {
-	# 	'x-rapidapi-host': "covid-193.p.rapidapi.com",
-	# 	'x-rapidapi-key': "6999f8d1damsh38c931d610b352cp1fe69bjsn11d47d220dee"
-	# }
+	
 
 	headers = {
 			'x-rapidapi-host': os.getenv('x-rapidapi-host'),
